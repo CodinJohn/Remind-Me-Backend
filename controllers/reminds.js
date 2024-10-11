@@ -35,7 +35,7 @@ router.get('/:id', async (req, res) => {
 router.put('/:id', async (req, res) => {
     try {
         const remind = await Remind.findOneAndUpdate(
-            { _id: req.params.id, ownder: req.user._id },
+            { _id: req.params.id, owner: req.user._id },
             req.body,
             { new: true }
         );
