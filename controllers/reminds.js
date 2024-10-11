@@ -18,6 +18,16 @@ router.post('/', async (req, res) => {
     }
 });
 
+router.get('/', async (req, res) => {
+    try {
+      const reminds = await Remind.find({ owner: req.user._id });
+      res.status(200).json(reminds);
+    } catch (error) {
+      console.log(error);
+      res.status(500).json({ error: error.message });
+    }
+  });
+
 router.get('/:id', async (req, res) => {
     try {
         const remind = await Remind.findOne({ _id: req.params.id, owner: req.user._id });
