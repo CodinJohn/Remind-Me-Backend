@@ -61,7 +61,7 @@ router.put('/:id', async (req, res) => {
 
 router.delete('/:id', async (req, res) => {
     try {
-        const remind = await Remind.findOneAndDelete({ _id: req.param.id, owner: req.user._id });
+        const remind = await Remind.findOneAndDelete({ _id: req.params.id, owner: req.user._id });
         if (!remind) {
             return res.status(404).json({ error: 'Remind Me not found.' });
         }
