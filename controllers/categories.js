@@ -3,7 +3,7 @@ const verifytoken = require('../middleware/verify-token')
 const Category = require('../models/category.js')
 const router = express.Router();
 
-// router.use(verifytoken)
+router.use(verifytoken)
 
 router.post('/', async (req, res) => {
     try {
