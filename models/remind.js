@@ -9,14 +9,13 @@ const remindSchema = new mongoose.Schema({
         type: String,
         required: true,
     },
-    category: {
-        type: String,
-        required: true,
-        enum: ['Shopping List', 'House Chores', 'Fitness Tracker', 'Things to not Forget', 'Movies to watch'],
-    },
     owner: {
         type: mongoose.Schema.Types.ObjectId, ref: 'User', required: true
     },
+    categoryid: {
+        type: mongoose.Schema.Types.ObjectId, ref: 'Category', required: true
+
+    }
 });
 
 const Remind = mongoose.model('Remind', remindSchema);

@@ -20,7 +20,7 @@ router.post('/', async (req, res) => {
 
 router.get('/', async (req, res) => {
     try {
-      const reminds = await Remind.find({ owner: req.user._id });
+      const reminds = await Remind.find({ owner: req.user._id }).populate("categoryid");
       res.status(200).json(reminds);
     } catch (error) {
       console.log(error);
@@ -30,7 +30,7 @@ router.get('/', async (req, res) => {
 
 router.get('/:id', async (req, res) => {
     try {
-        const remind = await Remind.findOne({ _id: req.params.id, owner: req.user._id });
+        const remind = await Remind.findOne({ _id: req.params.id, owner: req.user._id }).populate("categoryid");
         if (!remind) {
             return res.status(404).json({ error: 'Remind Me not found.' });
         }

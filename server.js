@@ -7,6 +7,7 @@ const testJWTRouter = require('./controllers/test-jwt');
 const usersRouter = require('./controllers/users');
 const profilesRouter = require('./controllers/profiles');
 const remindsRouter = require('./controllers/reminds');
+const categoriesRouter = require('./controllers/categories')
 const cors = require('cors')
 
 
@@ -29,6 +30,7 @@ app.use('/test-jwt', testJWTRouter);
 app.use('/users', usersRouter);
 app.use('/profiles', profilesRouter);
 app.use('/reminds', remindsRouter);
+app.use('/categories', categoriesRouter);
 
 app.listen(3000, () => {
   console.log('The express app is ready!');
